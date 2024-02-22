@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -8,17 +9,25 @@ public class Main {
         int m = sc.nextInt();
         int[] arr = new int[n];
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i<n; i++){
             arr[i] = sc.nextInt();
         }
+        Arrays.sort(arr);
 
-        int count = 0;
+        int count = 0, l = 0, r = n-1, sum = 0;
 
-        for (int i = 0; i < n; i++) {
-            for (int j = i + 1; j < n; j++) {
-                if (arr[i] + arr[j] == m) {
-                    count++;
-                }
+        while (l<r){
+            sum = arr[l]+arr[r];
+            if(sum < m){
+                l++;
+            }
+            else if (sum > m){
+                r--;
+            }
+            else if(sum == m){
+                count++;
+                l++;
+                r--;
             }
         }
         System.out.println(count);
