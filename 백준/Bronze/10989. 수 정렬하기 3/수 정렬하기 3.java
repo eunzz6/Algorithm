@@ -14,8 +14,7 @@ public class Main {
         Arrays.sort(arr);
 
         for (int i = 0; i < n; i++) {
-            sw.write(String.valueOf(arr[i]));
-            sw.newLine();
+            sw.write(arr[i]+"\n");
         }
         sw.flush();
     }
